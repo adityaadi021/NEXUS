@@ -1,0 +1,16 @@
+{
+  "node": {
+    "404562861fedc4e24d67395585dfcfb7a2c43b2bc5": {
+      "workers": {
+        "app/tournaments/[id]/payment/page": {
+          "moduleId": "[project]/.next-internal/server/app/tournaments/[id]/payment/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/lib/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/tournaments/[id]/payment/page": "action-browser"
+      }
+    }
+  },
+  "edge": {}
+}

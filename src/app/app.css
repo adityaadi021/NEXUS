@@ -1,0 +1,78 @@
+.nexus-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+.nexus-main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.nexus-header {
+  backdrop-filter: blur(12px);
+  background-color: hsl(var(--background) / 0.8);
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.nexus-footer {
+  backdrop-filter: blur(12px);
+  background-color: hsl(var(--background) / 0.8);
+  border-top: 1px solid hsl(var(--border));
+}
+
+.nexus-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  padding: 0.5rem 1rem;
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+.nexus-button:hover {
+  background-color: hsl(var(--primary) / 0.9);
+}
+
+.nexus-input {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid hsl(var(--border));
+  background-color: hsl(var(--background));
+  padding: 0.5rem;
+  color: hsl(var(--foreground));
+}
+
+.nexus-input:focus {
+  outline: none;
+  ring: 2px solid hsl(var(--ring));
+}
+
+.nexus-card {
+  border-radius: var(--radius);
+  background-color: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  padding: 1.5rem;
+}
+
+.nexus-heading {
+  font-family: var(--font-space-grotesk), var(--font-inter), sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: hsl(var(--foreground));
+}
+
+.nexus-text {
+  font-family: var(--font-inter), sans-serif;
+  color: hsl(var(--foreground));
+}

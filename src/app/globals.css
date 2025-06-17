@@ -1,0 +1,420 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --background-dark: 240 10% 2%;
+    --background-glow: 240 80% 50%;
+    --foreground: 0 0% 98%;
+    
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    
+    --primary: 240 80% 50%;
+    --primary-foreground: 0 0% 98%;
+    
+    --secondary: 240 30% 10%;
+    --secondary-foreground: 0 0% 98%;
+    
+    --muted: 240 30% 10%;
+    --muted-foreground: 215 20.2% 65.1%;
+    
+    --accent: 240 30% 10%;
+    --accent-foreground: 0 0% 98%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 240 30% 10%;
+    --input: 240 30% 10%;
+    --ring: 240 80% 50%;
+    
+    --radius: 0.5rem;
+  }
+}
+
+/* Gaming-inspired base styles */
+body {
+  font-family: var(--font-inter), sans-serif;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 50% 50%, hsl(var(--background-glow) / 0.15) 0%, transparent 50%),
+    linear-gradient(to bottom, hsl(var(--background)), hsl(var(--background-dark))),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Animated background effect */
+.static-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(45deg, 
+      hsl(var(--background-dark)) 0%,
+      hsl(var(--background)) 50%,
+      hsl(var(--background-dark)) 100%
+    ),
+    url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.02' fill-rule='evenodd'/%3E%3C/svg%3E");
+  background-size: 400% 400%, 100px 100px;
+  animation: gradientBG 15s ease infinite;
+  z-index: -1;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%, 0 0; }
+  50% { background-position: 100% 50%, 0 0; }
+  100% { background-position: 0% 50%, 0 0; }
+}
+
+.font-headline {
+  font-family: var(--font-space-grotesk), var(--font-inter), sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  position: relative;
+}
+
+@layer base {
+  :root {
+    /* Base colors - Deep cyberpunk dark */
+    --background: 230 50% 3%; /* Deep blue-black */
+    --background-dark: 230 50% 1%; /* Darker blue-black */
+    --background-glow: 230 100% 50%; /* Bright blue for glow */
+    --foreground: 220 20% 98%; /* Bright off-white */
+    
+    /* Card and surface colors */
+    --card: 230 40% 5%; /* Dark blue-gray */
+    --card-foreground: 220 20% 98%; /* Bright off-white */
+    --popover: 230 40% 5%; /* Dark blue-gray */
+    --popover-foreground: 220 20% 98%; /* Bright off-white */
+    
+    /* Primary colors - Cyberpunk purple */
+    --primary: 270 100% 50%; /* Bright purple */
+    --primary-foreground: 0 0% 100%; /* White */
+    
+    /* Secondary colors - Neon blue */
+    --secondary: 200 100% 50%; /* Bright blue */
+    --secondary-foreground: 0 0% 100%; /* White */
+    
+    /* Muted colors */
+    --muted: 230 30% 15%; /* Dark blue-gray */
+    --muted-foreground: 220 20% 70%; /* Muted blue-white */
+    
+    /* Accent colors - Neon teal */
+    --accent: 180 100% 50%; /* Bright teal */
+    --accent-foreground: 0 0% 100%; /* White */
+    
+    /* Destructive colors - Neon red */
+    --destructive: 0 100% 50%; /* Bright red */
+    --destructive-foreground: 0 0% 100%; /* White */
+    
+    /* Border and input colors */
+    --border: 230 50% 20%; /* Blue-gray */
+    --input: 230 30% 10%; /* Dark blue-gray */
+    --ring: 270 100% 50%; /* Bright purple for focus */
+    
+    /* Border radius */
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Gaming-inspired utility classes */
+.text-neon-primary {
+  color: hsl(var(--primary));
+  text-shadow: 
+    0 0 5px hsl(var(--primary) / 0.5),
+    0 0 10px hsl(var(--primary) / 0.3),
+    0 0 20px hsl(var(--primary) / 0.2);
+  animation: textPulse 2s ease-in-out infinite;
+  position: relative;
+}
+
+.text-neon-primary::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: hsl(var(--primary));
+  filter: blur(8px);
+  opacity: 0.5;
+  animation: textPulse 2s ease-in-out infinite;
+  z-index: -1;
+}
+
+.text-neon-accent {
+  color: hsl(var(--accent));
+  text-shadow: 
+    0 0 5px hsl(var(--accent) / 0.5),
+    0 0 10px hsl(var(--accent) / 0.3),
+    0 0 20px hsl(var(--accent) / 0.2);
+  animation: textPulse 2s ease-in-out infinite;
+  position: relative;
+}
+
+.text-neon-accent::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: hsl(var(--accent));
+  filter: blur(8px);
+  opacity: 0.5;
+  animation: textPulse 2s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes textPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.icon-glow-primary,
+.icon-glow-primary svg {
+  color: hsl(var(--primary));
+  filter: 
+    drop-shadow(0 0 2px hsl(var(--primary) / 0.5))
+    drop-shadow(0 0 5px hsl(var(--primary) / 0.3))
+    drop-shadow(0 0 10px hsl(var(--primary) / 0.2));
+  animation: iconPulse 2s ease-in-out infinite;
+}
+
+.icon-glow-accent,
+.icon-glow-accent svg {
+  color: hsl(var(--accent));
+  filter: 
+    drop-shadow(0 0 2px hsl(var(--accent) / 0.5))
+    drop-shadow(0 0 5px hsl(var(--accent) / 0.3))
+    drop-shadow(0 0 10px hsl(var(--accent) / 0.2));
+  animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* New gaming-inspired utility classes */
+.bg-gradient-gaming {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--primary)) 0%,
+    hsl(var(--secondary)) 50%,
+    hsl(var(--accent)) 100%
+  );
+  background-size: 200% 200%;
+  animation: gradientMove 5s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Additional gaming-inspired utility classes */
+.hover-glow {
+  transition: all 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 
+    0 0 5px hsl(var(--primary) / 0.5),
+    0 0 10px hsl(var(--primary) / 0.3),
+    0 0 20px hsl(var(--primary) / 0.2);
+  transform: translateY(-2px);
+}
+
+.cyber-grid {
+  position: relative;
+  background: 
+    linear-gradient(90deg, hsl(var(--border) / 0.1) 1px, transparent 1px) 0 0 / 20px 20px,
+    linear-gradient(0deg, hsl(var(--border) / 0.1) 1px, transparent 1px) 0 0 / 20px 20px;
+}
+
+.cyber-grid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    hsl(var(--primary) / 0.1) 50%,
+    transparent 100%
+  );
+  animation: gridShine 3s linear infinite;
+}
+
+@keyframes gridShine {
+  0% { transform: translateX(-100%) translateY(-100%); }
+  100% { transform: translateX(100%) translateY(100%); }
+}
+
+.gaming-card {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.gaming-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    hsl(var(--primary) / 0.1) 50%,
+    transparent 100%
+  );
+  animation: cardShine 3s linear infinite;
+}
+
+@keyframes cardShine {
+  0% { transform: translateX(-100%) translateY(-100%); }
+  100% { transform: translateX(100%) translateY(100%); }
+}
+
+.gaming-button {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.gaming-button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    hsl(var(--primary-foreground) / 0.2) 50%,
+    transparent 100%
+  );
+  animation: buttonShine 3s linear infinite;
+}
+
+@keyframes buttonShine {
+  0% { transform: translateX(-100%) translateY(-100%); }
+  100% { transform: translateX(100%) translateY(100%); }
+}
+
+.gaming-input {
+  background: hsl(var(--input));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  color: hsl(var(--foreground));
+  transition: all 0.3s ease;
+}
+
+.gaming-input:focus {
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 2px hsl(var(--ring) / 0.2);
+  outline: none;
+}
+
+.gaming-progress {
+  background: hsl(var(--muted));
+  border-radius: var(--radius);
+  height: 0.5rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.gaming-progress::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    hsl(var(--primary)) 0%,
+    hsl(var(--secondary)) 50%,
+    hsl(var(--accent)) 100%
+  );
+  animation: progressPulse 2s ease-in-out infinite;
+}
+
+@keyframes progressPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.gaming-badge {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border-radius: var(--radius);
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+  overflow: hidden;
+}
+
+.gaming-badge::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    hsl(var(--primary-foreground) / 0.2) 50%,
+    transparent 100%
+  );
+  animation: badgeShine 3s linear infinite;
+}
+
+@keyframes badgeShine {
+  0% { transform: translateX(-100%) translateY(-100%); }
+  100% { transform: translateX(100%) translateY(100%); }
+}

@@ -10,7 +10,8 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "init-db": "tsx src/scripts/init-db.ts"
+    "init-db": "tsx src/scripts/init-db.ts",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@genkit-ai/googleai": "^1.8.0",
